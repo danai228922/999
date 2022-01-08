@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>My LIFF App</title>
+  <style>
+    body { padding: 256px }
+    button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
+  </style>
+</head>
+<body>
+  <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
+  <button id="btnLogin" onclick="liff.login()">Log In</button>
+  <button id="btnLogOut" onclick="logOut()">Log Out</button>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
+  <script>
+    async function sendShare() {
+      const result = await liff.shareTargetPicker([
+        {
+          "type": "flex",
+          "altText": "คู่มือการจัดการเรียนรู้",
+          "contents":{
+  "type": "bubble",
+  "size": "giga",
+  "hero": {
+    "type": "image",
+    "url": "https://www.img.in.th/images/0b4f22e85509f6fa92e6821ecaad85be.png",
+    "size": "full",
+    "aspectRatio": "10:3",
+    "aspectMode": "cover"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "flex": 1,
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://www.img.in.th/images/c69780dca152de61e2519ee6861bf358.png",
+            "aspectMode": "fit",
+            "aspectRatio": "1:1",
+            "size": "xxl",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://drive.google.com/file/d/1frc4gpQ6j-0Sk4TYL8ZLn23Yq6odgE0F/view?usp=sharing"
+            },
+            "animated": true,
+            "backgroundColor": "#009e9e"
+          },
+          {
+            "type": "image",
+            "url": "https://www.img.in.th/images/39de514071ff9faac04985f688d2d327.png",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "margin": "md",
+            "size": "xxl",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://drive.google.com/file/d/1QfA8WmPmcXsbEvJt64YD3I36dnz-Z7k2/view?usp=sharing"
+            },
+            "backgroundColor": "#009e9e"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "flex": 1,
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://www.img.in.th/images/a7bce5e6660286bf3edb2132ab323aa9.png",
+            "aspectMode": "fit",
+            "aspectRatio": "1:1",
+            "size": "xxl",
+            "gravity": "bottom",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://drive.google.com/file/d/1kf96Vqxi35GAR1B7OB3USetK9eTH20bE/view?usp=sharing"
+            },
+            "backgroundColor": "#009e9e"
+          },
+          {
+            "type": "image",
+            "url": "https://www.img.in.th/images/b46d592005fae430d05f4cc84112cad6.png",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "margin": "md",
+            "size": "xxl",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://datastudio.google.com/reporting/df5aebc7-d5b0-4b1d-8e2a-64c989f27696?openExternalBrowser=1"
+            },
+            "backgroundColor": "#009e9e"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ส่งแบบตอบรับเข้าประกวด",
+            "color": "#FFFFFF",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://forms.gle/P1vzA1WeqAYbzGoy5?openExternalBrowser=1"
+            }
+          },
+          {
+            "type": "text",
+            "text": "ผ่าน Google ฟอร์ม",
+            "color": "#FFFFFF",
+            "weight": "bold",
+            "size": "xxl",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://forms.gle/P1vzA1WeqAYbzGoy5?openExternalBrowser=1"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เพื่อยืนยันสิทธิ์การเข้าประกวดโครงงานคุณธรรมระดับประเทศ ",
+            "color": "#FFFFFF",
+            "size": "11px",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://forms.gle/P1vzA1WeqAYbzGoy5?openExternalBrowser=1"
+            }
+          }
+        ],
+        "cornerRadius": "none",
+        "borderColor": "#FF0000",
+        "borderWidth": "bold",
+        "backgroundColor": "#0000CD",
+        "alignItems": "center"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "separator",
+            "color": "#FFFFFF"
+          },
+          {
+            "type": "text",
+            "text": "=ให้คลิกที่ภาพ แต่ละภาพ เพื่อดูรายละเอียด=",
+            "color": "#FFFFFF",
+            "size": "16px"
+          },
+          {
+            "type": "separator",
+            "color": "#FFFFFF"
+          }
+        ],
+        "alignItems": "center"
+      }
+    ],
+    "backgroundColor": "#003366"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": ">>> ส่งต่อให้เพื่อน<<<",
+          "uri": "https://liff.line.me/1655879041-0Q4qWoJ8"
+        },
+        "style": "primary",
+        "gravity": "top",
+        "adjustMode": "shrink-to-fit"
+      }
+    ],
+    "backgroundColor": "#228B22"
+  }
+}
+        }
+      ])
+      if (result) {
+        alert(`[${result.status}] Message sent!`)
+      } else {
+        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+        if (minorVer === undefined) {
+          alert('ShareTargetPicker was canceled in external browser')
+          return
+        }
+
+        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+          alert('ShareTargetPicker was canceled in LINE app')
+        }
+      }
+    }
+    function logOut() {
+      liff.logout()
+      window.location.reload()
+    }
+    async function main() {
+      await liff.init({ liffId: "1655879041-0Q4qWoJ8" })
+      if (liff.isLoggedIn()) {
+        document.getElementById("btnShare").style.display = "block"
+        if (!liff.isInClient()) {
+          document.getElementById("btnLogOut").style.display = "block"
+        }
+      } else {
+        document.getElementById("btnLogin").style.display = "block"
+      }
+    }
+    main()
+  </script>
+</body>
+</html>
